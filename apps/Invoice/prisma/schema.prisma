@@ -1,0 +1,19 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model InvoiceItem {
+  createdAt   DateTime @default(now())
+  description String?
+  id          String   @id @default(cuid())
+  invoiceId   String?
+  quantity    Int?
+  totalPrice  Float?
+  unitPrice   Float?
+  updatedAt   DateTime @updatedAt
+}
