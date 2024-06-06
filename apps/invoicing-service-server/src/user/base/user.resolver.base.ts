@@ -26,8 +26,6 @@ import { UserFindUniqueArgs } from "./UserFindUniqueArgs";
 import { CreateUserArgs } from "./CreateUserArgs";
 import { UpdateUserArgs } from "./UpdateUserArgs";
 import { DeleteUserArgs } from "./DeleteUserArgs";
-import { InvoiceFindManyArgs } from "../../invoice/base/InvoiceFindManyArgs";
-import { Invoice } from "../../invoice/base/Invoice";
 import { UserService } from "../user.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => User)
@@ -132,25 +130,5 @@ export class UserResolverBase {
       }
       throw error;
     }
-  }
-
-  @common.UseInterceptors(AclFilterResponseInterceptor)
-  @graphql.ResolveField(() => [Invoice], { name: "invoices" })
-  @nestAccessControl.UseRoles({
-    resource: "Invoice",
-    action: "read",
-    possession: "any",
-  })
-  async findInvoices(
-    @graphql.Parent() parent: User,
-    @graphql.Args() args: InvoiceFindManyArgs
-  ): Promise<Invoice[]> {
-    const results = await this.service.findInvoices(parent.id, args);
-
-    if (!results) {
-      return [];
-    }
-
-    return results;
   }
 }

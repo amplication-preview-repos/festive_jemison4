@@ -1,12 +1,12 @@
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
-import { InvoiceListRelationFilter } from "../invoice/InvoiceListRelationFilter";
+import { JsonFilter } from "../../util/JsonFilter";
 
 export type UserWhereInput = {
   email?: StringNullableFilter;
   firstName?: StringNullableFilter;
   id?: StringFilter;
-  invoices?: InvoiceListRelationFilter;
+  invoices?: JsonFilter;
   lastName?: StringNullableFilter;
   username?: StringFilter;
 };

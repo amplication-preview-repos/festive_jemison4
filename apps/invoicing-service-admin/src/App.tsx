@@ -5,18 +5,6 @@ import { theme } from "./theme/theme";
 import Login from "./Login";
 import "./App.scss";
 import Dashboard from "./pages/Dashboard";
-import { CustomerList } from "./customer/CustomerList";
-import { CustomerCreate } from "./customer/CustomerCreate";
-import { CustomerEdit } from "./customer/CustomerEdit";
-import { CustomerShow } from "./customer/CustomerShow";
-import { InvoiceList } from "./invoice/InvoiceList";
-import { InvoiceCreate } from "./invoice/InvoiceCreate";
-import { InvoiceEdit } from "./invoice/InvoiceEdit";
-import { InvoiceShow } from "./invoice/InvoiceShow";
-import { InvoiceItemList } from "./invoiceItem/InvoiceItemList";
-import { InvoiceItemCreate } from "./invoiceItem/InvoiceItemCreate";
-import { InvoiceItemEdit } from "./invoiceItem/InvoiceItemEdit";
-import { InvoiceItemShow } from "./invoiceItem/InvoiceItemShow";
 import { UserList } from "./user/UserList";
 import { UserCreate } from "./user/UserCreate";
 import { UserEdit } from "./user/UserEdit";
@@ -47,27 +35,6 @@ const App = (): React.ReactElement => {
         dashboard={Dashboard}
         loginPage={Login}
       >
-        <Resource
-          name="Customer"
-          list={CustomerList}
-          edit={CustomerEdit}
-          create={CustomerCreate}
-          show={CustomerShow}
-        />
-        <Resource
-          name="Invoice"
-          list={InvoiceList}
-          edit={InvoiceEdit}
-          create={InvoiceCreate}
-          show={InvoiceShow}
-        />
-        <Resource
-          name="InvoiceItem"
-          list={InvoiceItemList}
-          edit={InvoiceItemEdit}
-          create={InvoiceItemCreate}
-          show={InvoiceItemShow}
-        />
         <Resource
           name="User"
           list={UserList}

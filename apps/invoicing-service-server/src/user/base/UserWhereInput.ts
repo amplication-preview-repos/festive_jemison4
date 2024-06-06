@@ -13,9 +13,9 @@ import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { Type } from "class-transformer";
-import { IsOptional, ValidateNested } from "class-validator";
+import { IsOptional } from "class-validator";
 import { StringFilter } from "../../util/StringFilter";
-import { InvoiceListRelationFilter } from "../../invoice/base/InvoiceListRelationFilter";
+import { JsonFilter } from "../../util/JsonFilter";
 
 @InputType()
 class UserWhereInput {
@@ -54,15 +54,14 @@ class UserWhereInput {
 
   @ApiProperty({
     required: false,
-    type: () => InvoiceListRelationFilter,
+    type: JsonFilter,
   })
-  @ValidateNested()
-  @Type(() => InvoiceListRelationFilter)
+  @Type(() => JsonFilter)
   @IsOptional()
-  @Field(() => InvoiceListRelationFilter, {
+  @Field(() => JsonFilter, {
     nullable: true,
   })
-  invoices?: InvoiceListRelationFilter;
+  invoices?: JsonFilter;
 
   @ApiProperty({
     required: false,

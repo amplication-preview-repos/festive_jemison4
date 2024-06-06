@@ -1,4 +1,3 @@
-import { Invoice } from "../invoice/Invoice";
 import { JsonValue } from "type-fest";
 
 export type User = {
@@ -6,7 +5,7 @@ export type User = {
   email: string | null;
   firstName: string | null;
   id: string;
-  invoices?: Array<Invoice>;
+  invoices: JsonValue;
   lastName: string | null;
   roles: JsonValue;
   updatedAt: Date;
